@@ -8,8 +8,8 @@
  width: 90%;
 }
 .gallery-container {
-  background: #F3F4FF;
-  margin-left: 100px;
+  background: #fff;
+  /* margin-left: 100px; */
 }
 .gallery {
   position: relative;
@@ -30,7 +30,6 @@
 .gallery li img {
   width: 70%;
   transition: all 500ms;
-  box-shadow: 0 18px 35px rgba(0,0,0,0.15);
     
 }
 .dropdown-text {
