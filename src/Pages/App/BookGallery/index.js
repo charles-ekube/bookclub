@@ -7,10 +7,11 @@ import Posts from "../../../Components/Cards/ChatCards/BookCard";
 import NavBar from "../../../NavBar";
 
 
+
 const postsPerPage = 8;
 let arrayForHoldingPosts = [];
 
- const GalleryPage = () => {
+const GalleryPage = () => {
   const [postsToShow, setPostsToShow] = useState([]);
   const [next, setNext] = useState(3);
 
@@ -30,12 +31,12 @@ let arrayForHoldingPosts = [];
 
   return (
     <>
-        <NavBar/>
-      <Search/>
-      <section className="gallery-container">
-        <Posts postsToRender={postsToShow} />
-        <button onClick={handleShowMorePosts} className="load-more animate__animated animate__fadeInUp">Load more</button>
-      </section>
+          <NavBar />
+          <Search />
+          <section className="gallery-container">
+            <Posts postsToRender={postsToShow} />
+            <button onClick={handleShowMorePosts} className="load-more animate__animated animate__fadeInUp">Load more</button>
+          </section>
     </>
   );
 };

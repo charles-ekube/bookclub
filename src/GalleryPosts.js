@@ -125,7 +125,7 @@ const posts = [
         id:16,
         image: img1,
         title: `Forever Evil: Justice League`,
-        text:`y of them and complete domination
+        text:` y of them and complete domination
          – no one except for Lex Luthor! - DC`
     }
     

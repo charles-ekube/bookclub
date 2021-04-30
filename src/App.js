@@ -1,9 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 // import GalleryPage from './GalleryPage';
 import { AuthContextProvider } from './Context/AuthContext';
+import { ThemeContextProvider } from './Context/ThemeContext';
 import GalleryPage from './Pages/App/BookGallery';
-import { Login } from './Pages/Auth';
+import BookUpload from './Pages/App/BookUpload';
+import { Login, SignUp } from './Pages/Auth';
 
 
 
@@ -34,13 +36,28 @@ function App({isAuthenticated}) {
       {/* <Support/>   */}
       {/*  */}
       
-            <AuthContextProvider>
+      <ThemeContextProvider>
+      <AuthContextProvider>
+      <BrowserRouter>
+            <Switch>
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                    <GalleryPage/>
+              </React.Fragment>
+            )}/>
+            <Route exact path='/Login' component={Login} />
+            <Route exact path='/SignUp' component={SignUp} />
+            <Route exact path='/Upload' component={BookUpload} />
+            
+                </Switch>
+        </BrowserRouter>
+            {/* <AuthContextProvider>
               <div>
-                {isAuthenticated ? <Login/> : <GalleryPage/>}
+                {!isAuthenticated ? <Login/> : <GalleryPage/>}
               </div>
-            </AuthContextProvider>
-
-
+            </AuthContextProvider> */}
+</AuthContextProvider>
+</ThemeContextProvider>
     </>
   );
 }

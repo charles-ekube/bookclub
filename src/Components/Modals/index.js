@@ -1,13 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import './modal.css';
 import Avatar from '../../images/batgirl.png';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { FaAngleDoubleRight} from 'react-icons/fa';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/esm/Button';
+import { BookContext } from '../../Context/BookContext';
 
 
-export const BookModal = ({ showModal, setShowModal }) => {
-
+export const BookModal = () => {
+    const {showModal, setShowModal} = useContext(BookContext)
     const ModalRef = useRef();
     const CloseModal = e => {
         if (ModalRef.current === e.target) {
@@ -34,31 +38,48 @@ export const BookModal = ({ showModal, setShowModal }) => {
                             </div>
                         </div>
                         <article className='book-modal-text'>
-                            <div className='book-modal-text-header'>
-
-                            </div>
-                            <div className='book-modal-description'>
-                                <p>
-                                    loremcjnscjscnsjncsjcnscjnscjnscnsjcsjncs
-                                    djcndcjndcjndcjndcjndcdjncdjcndcjndcnjdcdj
-                                    dcjndcjndcjdncjdncdcjndcndjcndcjdncjdncjdncdjcn
-                                    dcjndcjndcjdncjdcdcjndcjndcdjncdcjndcjndcn
-                                    dcjndcjdncdjcndjcndcjndcjdcndcjndcjndc
-                                    dcjndcjdncdjcndcjndcjndcjdncdjcndjcndcjncdj
-                                    cjdndcjndcjndcjdndcjdncjdcndjcdddcsjnsjsjss
-                               </p>
-                            </div>
+                            <p>
+                                loremcjnscjscnsjncsjcnscjnscjnscns
+                                djcndcjndcjndcjndcjndcdjncdjcndcjn
+                                dcjndcjndcjdncjdncdcjndcndjcndcjdn
+                                dcjndcjndcjdncjdcdcjndcjndcdjncdcj
+                            </p>
                             <div>
-                                <Accordion>
-                                    <Card style={{ border: 'none', background: 'inherit' }}>
-                                        <Card.Header style={{ border: 'none', background: 'inherit', paddingLeft: '0' }}>
+                                <Accordion className="comment-accordion-container">
+                                    <Card className="comment-card" style={{ border: 'none', background: 'inherit' }}>
+                                        <Card.Header className="comment-card-header">
                                             <Accordion.Toggle as={Card.Header} eventKey='0' style={{ border: 'none', background: 'inherit', paddingLeft: '0', cursor: 'pointer' }}>
                                                 Comments
                                             </Accordion.Toggle>
                                         </Card.Header>
-                                        <Accordion.Collapse eventKey='0'>
+                                        <Accordion.Collapse eventKey='0' style={{height:'100%'}}>
                                             <Card.Body >
-                                                Hello
+                                                <section>
+                                                    <div className="comment-message">
+                                                        <span>
+                                                            loremcjnscjscnsjncsjcnscjnscjnscns
+                                                            djcndcjndcjndcjndcjndcdjncdjcndcjn
+                                                            dcjndcjndcjdncjdncdcjndcndjcndcjdn
+                                                            dcjndcjndcjdncjdcdcjndcjndcdjncdcj
+                                                        </span>
+                                                    </div>
+                                                    <Form.Group controlId="formBasicEmail">
+                                                        <InputGroup className="mb-3">
+                                                            <Form.Control 
+                                                            placeholder="comments" 
+                                                            aria-label="comments"
+                                                            aria-describedby="basic-addon2"
+                                                            />
+                                                            <InputGroup.Append>
+                                                                <Button className="send-btn">
+                                                                    <i style={{transform:'rotateY(-45deg)'}}>
+                                                                        <FaAngleDoubleRight/>
+                                                                    </i>
+                                                                </Button>
+                                                            </InputGroup.Append>
+                                                        </InputGroup>
+                                                    </Form.Group>
+                                                </section>
                                             </Card.Body>
                                         </Accordion.Collapse>
                                     </Card>
